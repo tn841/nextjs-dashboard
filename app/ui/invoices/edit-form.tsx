@@ -9,6 +9,8 @@ import {
 } from '@heroicons/react/24/outline';
 import Link from 'next/link';
 import { Button } from '@/app/ui/button';
+import { updateInvoice } from '@/app/lib/actions';
+
 
 export default function EditInvoiceForm({
   invoice,
@@ -17,8 +19,18 @@ export default function EditInvoiceForm({
   invoice: InvoiceForm;
   customers: CustomerField[];
 }) {
+  const updateInvoiceWithId = updateInvoice.bind(null, invoice.id);
+  // js bind 함수를 사용하는 이유는 server action 함수로는 formdata
+  // 밖에 전송하지 못하기 때문에,  invoice.id를 formdata에 bind하여
+  // formdata로 만들어 server action으로 전송하기 위함.
+
+  // bind하는것이 낯설다면, <input type=hidden ..>으로 server action
+  // 함수로 데이터를 넘길 수 있다.
+  // 그러나 이는 HTML에 민감정보가 그대로 노출된다는 문제점이 있다.
+
   return (
-    <form>
+    <form action={updateInvoiceWithId}>
+      {/* <input type="hidden" name="id" value={invoice.id} /> */}
       <div className="rounded-md bg-gray-50 p-4 md:p-6">
         {/* Customer Name */}
         <div className="mb-4">
