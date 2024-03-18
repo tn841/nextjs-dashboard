@@ -18,6 +18,7 @@ jobs:
         port: 22
     - name: git pull
       run: |
+        pwd
         cd ${{ github.event.repository.name }}
         git pull origin master
     - name: npm install & build
