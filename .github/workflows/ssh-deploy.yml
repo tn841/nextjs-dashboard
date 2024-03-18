@@ -19,3 +19,7 @@ jobs:
         script: |
             cd ${{ github.event.repository.name }}
             pwd
+            git pull origin master
+            npm install
+            npm run build
+            npm run start
