@@ -22,7 +22,7 @@ jobs:
     - name: npm install & build
       run: |
         pwd
-        cd ~${{ github.event.repository.name }}
+        cd ~/${{ github.event.repository.name }}
         #        git pull origin master
         #  npm install
         #  npm run build
