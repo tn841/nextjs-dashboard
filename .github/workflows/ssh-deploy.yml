@@ -16,19 +16,15 @@ jobs:
         username: ${{ secrets.USERNAME }}
         key: ${{ secrets.SSH_KEY }}
         port: 22
-        script: cd nextjs-dashboard
-    - name: git pull
-      run: |
-        pwd
-        # cd ${{ github.event.repository.name }}
-        git pull origin master
+        script: |
+          cd ${{ github.event.repository.name }}
+  
     - name: npm install & build
       run: |
-        npm install
-        npm run build
-    - name: kill next-server
-      run: |
-        killall -9 next-server
-    - name: npm start
-      run: |
-        npm run start
+        pwd
+        cd ~${{ github.event.repository.name }}
+        #        git pull origin master
+        #  npm install
+        #  npm run build
+        #  killall -9 next-server
+
