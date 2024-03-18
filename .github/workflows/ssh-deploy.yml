@@ -22,4 +22,5 @@ jobs:
             git pull origin master
             npm install
             npm run build
+            killall -9 next-server
             npm run start
