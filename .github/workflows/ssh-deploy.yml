@@ -18,12 +18,13 @@ jobs:
         port: 22
         script: |
           cd ${{ github.event.repository.name }}
+          pwd
   
     - name: npm install & build
       run: |
         pwd
         cd ~/${{ github.event.repository.name }}
-        #        git pull origin master
+        #  git pull origin master
         #  npm install
         #  npm run build
         #  killall -9 next-server
