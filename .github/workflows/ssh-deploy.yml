@@ -19,10 +19,15 @@ jobs:
         run: |
           cd ${{ github.event.repository.name }}
     - name: git pull
-      run: 
+      run: |
         git pull origin master
-    - name: npm install & build & start
+    - name: npm install & build
+      run: |
         npm install
         npm run build
+    - name: kill next-server
+      run: |
         killall -9 next-server
+    - name: npm start
+      run: |
         npm run start
