@@ -17,6 +17,14 @@ jobs:
         key: ${{ secrets.SSH_KEY }}
         port: 22
         script: |
-            cd ${{ github.event.repository.name }}
-            pwd
-            sh deploy-ssh.sh
+          cd ${{ github.event.repository.name }}
+          pwd
+          git pull origin master
+          echo "git pull complete"
+          npm install
+          echo "npm install complete"
+          npm run build
+          echo "npm build complete"
+          pm2 delete next-app 2> /dev/null & pm2 start "npm run start" --name "next-app"
+          echo "pm2 delete & npm start complete"
+      
