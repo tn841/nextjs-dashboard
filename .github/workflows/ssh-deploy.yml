@@ -27,3 +27,5 @@ jobs:
           echo "npm build complete"
           pm2 delete next-app 2> /dev/null || pm2 start "npm run start" --name "next-app"
           echo "pm2 delete & npm start"
+          sudo systemctl restart nginx
+          echo "nginx restart"
