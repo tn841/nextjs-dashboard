@@ -119,6 +119,7 @@ export async function authenticate(
     formData: FormData,
   ) {
     try {
+        console.log('>> async function authenticate')
       await signIn('credentials', formData);
     } catch (error) {
       if (error instanceof AuthError) {
