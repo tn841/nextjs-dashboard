@@ -8,10 +8,8 @@ export const authConfig = {
     authorized({ auth, request: { nextUrl } }) {
       const isLoggedIn = !!auth?.user;
       const isOnDashboard = nextUrl.pathname.startsWith('/dashboard');
-      console.log('auth.config.ts >> isLoggedIn : ', isLoggedIn);
-      console.log('auth.config.ts >> isOnDashboard : ', isOnDashboard);
-      console.log('auth.config.ts >> nextUrl : ', nextUrl);
-      console.log('auth.config.ts >> process.env.NEXTAUTH_URL : ', process.env.NEXTAUTH_URL);
+      
+      console.log('auth.config.ts >> process.env.APP_ENV : ', process.env.APP_ENV);
       
       if (isOnDashboard) {
         if (isLoggedIn) return true;

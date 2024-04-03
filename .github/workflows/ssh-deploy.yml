@@ -25,7 +25,7 @@ jobs:
           echo "npm install complete"
           npm run build
           echo "npm build complete"
-          pm2 restart pm2.config.js 2> /dev/null
+          pm2 startOrRestart pm2.config.js --env prod
           echo "pm2 restart complete"
           
       
